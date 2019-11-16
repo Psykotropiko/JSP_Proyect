@@ -18,26 +18,12 @@ public class animales extends HttpServlet {
         
         String animal = request.getParameter("animal");
         
-        System.out.println(animal);      
+        System.out.println(animal); //Mostrar por consola
+        request.setAttribute("resultados", animal);
         
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PruebaServlet</title>"); 
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PruebaServlet at " + request.getContextPath() + "</h1>");
-            out.println("animal: " + animal + "</br>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-        
-        //RequestDispatcher requestDispatcher; 
-        //requestDispatcher = request.getRequestDispatcher("/animales.jsp");
-        //requestDispatcher.forward(request, response);
+        RequestDispatcher requestDispatcher; 
+        requestDispatcher = request.getRequestDispatcher("/animales.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
