@@ -49,6 +49,7 @@
           
                     <%}%>
             </select> 
+                    <input type="submit" value="validar" onclick="comprobar()">
                 </form>
             </div>
         </div>
