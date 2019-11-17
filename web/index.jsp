@@ -37,18 +37,13 @@
             <div class="container text-center py-5">
                 <h1 class="display-1">Animales</h1>
                 <form action="animales" method="POST" autocomplete="on">
-                    <!--Bucle for, mostrara tantos animales como haya en la db
-                        falta poner la variable del servlet que los muestra en el select!!!
-                        -->
-                    <select>
-                <option id="opt" name="animales" select="seleted" disabled='disabled'>--Seleccionar Animal--</option>
-                    <%for ( int i = 0; i < 6; i++){ %>
-        
-                          <!-- ${i} se suprime por el id en la base de datos y el resultado sera el nombre -->
-                        <option id="opts" value="${i}"> ${resultados}</option>
-          
-                    <%}%>
-            </select> 
+                    <select name="animal">
+			<option name="perro">Perro</option>
+                        <option name="gato">Gato</option>
+			<option  name="lagarto" selected>Lagarto</option>
+			<option name="leon">Leon</option>
+                        <input type="submit" value="Enviar">
+                    </select>
                 </form>
             </div>
         </div>

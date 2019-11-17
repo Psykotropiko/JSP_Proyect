@@ -1,23 +1,39 @@
+import database.Tbanimal;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logicaDeNegocio.TbanimalFacade;
 /*
  * @author sergio13v
  */
 @WebServlet(urlPatterns = {"/animales"})
 public class animales extends HttpServlet {
 
+    @EJB
+    private TbanimalFacade tbanimalFacade;
+
+    @PersistenceContext(unitName = "AnimalesPU")
+    private EntityManager em;
+    @Resource
+    private javax.transaction.UserTransaction utx;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Tbanimal a1 = tbanimalFacade.find(6);
+        request.setAttribute("a1", a1);
+         
         String animal = request.getParameter("animal");
-        
         System.out.println(animal); //Mostrar por consola
         request.setAttribute("resultados", animal);
         
@@ -64,5 +80,18 @@ public class animales extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    public void persist(Object object) {
+        try {
+            utx.begin();
+            em.persist(object);
+            utx.commit();
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
 }
