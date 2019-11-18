@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logicaDeNegocio.TbanimalFacade;
-/*
- * @author sergio13v
- */
+
+
+
 @WebServlet(urlPatterns = {"/animales"})
 public class animales extends HttpServlet {
 

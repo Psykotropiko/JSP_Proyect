@@ -1,7 +1,6 @@
 <%-- 
     Document   : animales
     Created on : Nov 15, 2019, 4:51:29 PM
-    Author     : sergio13v
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

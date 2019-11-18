@@ -19,10 +19,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author sergio13v
- */
+
 @Entity
 @Table(name = "tbanimal")
 @XmlRootElement
@@ -41,7 +38,7 @@ public class Tbanimal implements Serializable {
     private Integer id;
     @Size(max = 20)
     @Column(name = "nombre")
-    private String nombre;
+    public String nombre;
     @Size(max = 900)
     @Column(name = "descripcion")
     private String descripcion;

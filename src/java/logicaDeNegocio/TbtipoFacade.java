@@ -10,10 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author sergio13v
- */
+
 @Stateless
 public class TbtipoFacade extends AbstractFacade<Tbtipo> {
 
