@@ -35,7 +35,7 @@ public class animales extends HttpServlet {
          
         String animal = request.getParameter("animal");
         System.out.println(animal); //Mostrar por consola
-        request.setAttribute("resultados", animal);
+        request.setAttribute("animales", animal);
         
         RequestDispatcher requestDispatcher; 
         requestDispatcher = request.getRequestDispatcher("/animales.jsp");
