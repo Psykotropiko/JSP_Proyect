@@ -17,6 +17,7 @@
         <!--Validacion Manuel:
         Si el selected es distinto de vacio(1 seleccionado) = bien, sino = mal.
         Pendiente de continuar...
+        Javi se puede conectar
         -->
         <title>Animales</title>
         <script type="text/javascript">
