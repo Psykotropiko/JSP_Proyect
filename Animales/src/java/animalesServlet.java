@@ -44,6 +44,9 @@ public class animalesServlet extends HttpServlet {
     }
     protected void processAnimalesRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+            List<Tbanimal> listaAnimales = tbanimalFacade.findAll();
+            request.setAttribute("listaAnimales", listaAnimales);
     
             RequestDispatcher requestDispatcher; 
             requestDispatcher = request.getRequestDispatcher("/animales.jsp");
