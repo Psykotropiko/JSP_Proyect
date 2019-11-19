@@ -8,10 +8,6 @@ package logicaDeNegocio;
 import java.util.List;
 import javax.persistence.EntityManager;
 
-/**
- *
- * @author sergio13v
- */
 public abstract class AbstractFacade<T> {
 
     private Class<T> entityClass;

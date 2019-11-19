@@ -6,14 +6,11 @@
 package logicaDeNegocio;
 
 import database.Tbtipo;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author sergio13v
- */
 @Stateless
 public class TbtipoFacade extends AbstractFacade<Tbtipo> {
 
@@ -29,8 +26,11 @@ public class TbtipoFacade extends AbstractFacade<Tbtipo> {
         super(Tbtipo.class);
     }
     
-    public T find(Object id_tipo) {//ola
-        return getEntityManager().find(entityClass, id);
+    //Hay que crear este metodo
+    public List<T> findAllByTipo() {
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(entityClass));
+        return getEntityManager().createQuery(cq).getResultList();
     }
     
 }

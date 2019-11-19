@@ -1,7 +1,6 @@
 <%-- 
     Document   : index
     Created on : Nov 19, 2019, 1:02:42 AM
-    Author     : sergio13v
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
