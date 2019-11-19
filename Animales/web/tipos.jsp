@@ -4,6 +4,7 @@
     Author     : sergio13v
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,21 +19,25 @@
         <title>Tipos</title>
     </head>
     <body>
-        <h2>${t1.nombre}</h2>
         <div class="container-fluid bg-primary">
             <div class="container text-center py-5">
                 <h1 class="display-1">Animales</h1>
                 
-                
-                
-                <div class="card" style="width: 18rem;">
+                <c:forEach items="${listaTipos}" var="tipo">
+                    <div class="card" style="width: 18rem;">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">${tipo.nombre}</h5>
+                        <a href="/Animales/?tipo=${tipo.id}">Más información</a>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
-                </div>
+                    </div>
+ 
+                    
+                </c:forEach>
+                
+                
                 
                 
 <!--                <form action="animalesServlet" method="POST" autocomplete="on">

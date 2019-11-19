@@ -33,29 +33,47 @@ public class animalesServlet extends HttpServlet {
     private EntityManager em;
     @Resource
     private javax.transaction.UserTransaction utx;
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    
+    protected void processTipoRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Tbtipo> t1 = tbtipoFacade.findAll();
-        request.setAttribute("t1", t1);
-        
-        Tbanimal a1 = tbanimalFacade.find(6);
-        request.setAttribute("a1", a1);
-         
-        String animal = request.getParameter("animal");
-        request.setAttribute("resultados", animal);
-        
-        if (animal==null) {
+            List<Tbtipo> listaTipos = tbtipoFacade.findAll();
+            request.setAttribute("listaTipos", listaTipos);
+    
             RequestDispatcher requestDispatcher; 
             requestDispatcher = request.getRequestDispatcher("/tipos.jsp");
             requestDispatcher.forward(request, response);
-        }
-        else {
+    
+    }
+    protected void processAnimalesRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
             RequestDispatcher requestDispatcher; 
             requestDispatcher = request.getRequestDispatcher("/animales.jsp");
             requestDispatcher.forward(request, response);
+    
+    }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+         
+        String tipo = request.getParameter("tipo");
+        
+        
+        if (tipo==null) {
+            processTipoRequest(request, response);
+            
+            
         }
+        else {
+            
+            processAnimalesRequest(request, response);
+            
+        }
+        
+        //Tbanimal a1 = tbanimalFacade.find(6);
+        //request.setAttribute("a1", a1);
+        //request.setAttribute("resultados", tipo);
 
     }
 
