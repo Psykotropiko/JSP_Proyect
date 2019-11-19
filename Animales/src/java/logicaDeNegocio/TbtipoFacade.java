@@ -27,10 +27,10 @@ public class TbtipoFacade extends AbstractFacade<Tbtipo> {
     }
     
     //Hay que crear este metodo
-    public List<T> findAllByTipo() {
-        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-        cq.select(cq.from(entityClass));
-        return getEntityManager().createQuery(cq).getResultList();
-    }
+    //public List<T> findAllByTipo() {
+      //  javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        //cq.select(cq.from(entityClass));
+        //return getEntityManager().createQuery(cq).getResultList();
+    //}
     
 }
