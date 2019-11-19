@@ -29,7 +29,7 @@ public class TbtipoFacade extends AbstractFacade<Tbtipo> {
         super(Tbtipo.class);
     }
     
-    public T find(Object id_tipo) {
+    public T find(Object id_tipo) {//ola
         return getEntityManager().find(entityClass, id);
     }
     
